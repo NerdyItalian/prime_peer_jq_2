@@ -27,14 +27,16 @@ RealEstate.prototype.display = function() {
     i++;
     // Get table by element
     var id = "addingRow" + i;
-    $("#table").append("<tr id='" + id + "'></tr>");
+    $("#table").append("<div class='row' id='" + id + "'></div>");
     var row = $("#" + id);
-    row.append("<td>Property ID : " + this.id + "</td>");
-    row.append("<td>" + this.area + " sq.ft.</td>");
-    row.append("<td>$" + this.price + " / sq.ft.</td>");
-    row.append("<td>Total Cost : $" + this.yearlyCost + "</td>");
-    row.append("<td>Monthly Cost : $" + this.monthlyCost + "</td>");
-    row.append("<td><button class='btnRemove'>Remove</button></td>");
+    row.append("<div class='td'>ID : " + this.id + "</div>");
+    row.append("<div class='td'>" + this.area + " sq.ft.</div>");
+    row.append("<div class='td'>$" + this.price + " / sq.ft.</div>");
+    row.append("<div class='td'>$" + this.yearlyCost + "</div>");
+    row.append("<div class='td'>$" + this.monthlyCost + "</div>");
+    row.append("<div class='td'><button class='btnRemove'>Remove</button></div>");
+    row.hide();
+    row.slideDown("fast");
 };
 
 // Returns a random RealEstate object
@@ -51,11 +53,11 @@ $(document).ready(function() {
 
     $("#btnMakeRealEstate").on("click", function() {
         var property = makeRealEstate();
-        property.display();
+        var row = property.display();
     });
 
     $("#table").on("click", ".btnRemove", function(){
-        $(this).parent().parent().fadeOut("slow", "swing", function(){
+        $(this).parent().parent().slideUp("fast", function(){
             $(this).remove();
         });
         console.log("remove");

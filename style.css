@@ -1,3 +1,88 @@
-tr:nth-child(even) {
-    background-color: pink;
+/* Generic body styles */
+body {
+    background: #aaa url(binding_light.png);
+    color: #333;
+    font-family: Abel, Helvetica, Arial, sans-serif;
+}
+
+/* Centered container */
+.container {
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Striped row coloring */
+.row {
+    background-color: rgba(255,255,255,.5);
+    overflow: auto;
+    height: 20px;
+    padding: 10px 0;
+}
+
+.row:nth-child(even) {
+    background-color: rgba(230,230,230,.5);
+}
+
+/* Slight color when hovering over a selected row */
+.row:hover {
+    background-color: rgba(199, 223, 255, 0.5);
+}
+
+/* Color the headers a darker blue with white */
+.row:nth-child(1) {
+    background-color: #2c41aa;
+    color: #eee;
+}
+
+/* Round the header edges */
+.row:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Pad the table data */
+.td, .th {
+    float: left;
+    width: 150px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    text-align: left;
+}
+
+/* Basic button styles -- used by the main button */
+button {
+    width: 160px;
+    height: 40px;
+    background-color: #2c41aa;
+    color: #eee;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 5px solid #212681;
+    margin-bottom: 20px;
+    font-family: Abel, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #3751d5;
+}
+
+button:active {
+    background-color: #2c41aa;
+    border: none;
+    border-top: 5px solid #212681;
+}
+
+/* Size adjustment for remove button */
+.btnRemove {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    top: -5px;
 }
