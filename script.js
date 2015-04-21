@@ -4,12 +4,6 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (1 + max - min) + min);
 }
 
-// Get random object from array
-Array.prototype.getRandomObject = function() {
-    var index = randomNumber(0, this.length -1);
-    return this[index];
-};
-
 /*          RealEstate Functions           */
 // RealEstate constructor
 function RealEstate(id, area, price) {
@@ -29,14 +23,14 @@ RealEstate.prototype.display = function() {
     var id = "addingRow" + i;
     $("#table").append("<div class='row' id='" + id + "'></div>");
     var row = $("#" + id);
-    row.append("<div class='td'>ID : " + this.id + "</div>");
-    row.append("<div class='td'>" + this.area + " sq.ft.</div>");
-    row.append("<div class='td'>$" + this.price + " / sq.ft.</div>");
-    row.append("<div class='td'>$" + this.yearlyCost + "</div>");
-    row.append("<div class='td'>$" + this.monthlyCost + "</div>");
-    row.append("<div class='td'><button class='btnRemove'>Remove</button></div>");
-    row.hide();
-    row.slideDown("fast");
+    var el =    "<div class='td'>ID : " + this.id + "</div>" + 
+                "<div class='td'>" + this.area + " sq.ft.</div>" +
+                "<div class='td'>$" + this.price + " / sq.ft.</div>" +
+                "<div class='td'>$" + this.yearlyCost + "</div>" +
+                "<div class='td'>$" + this.monthlyCost + "</div>" +
+                "<div class='td'><button class='btnRemove'>Remove</button></div>";
+    row.append(el);
+    row.hide().slideDown("fast");
 };
 
 // Returns a random RealEstate object
@@ -46,8 +40,6 @@ function makeRealEstate() {
     var price = randomNumber(15,30);
     return new RealEstate(id, area, price);
 }
-
-console.log(makeRealEstate());
 
 $(document).ready(function() {
 
